@@ -1,0 +1,1191 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CV Profesional - Juan Carlos Dominguez Garcia</title>
+    <style>
+        :root {
+            --primary: #007bff;
+            --secondary: #2c3e50;
+            --accent-orange: #F39C12;
+            --accent-green: #2ECC71;
+            --text-color: #333;
+            --bg-color: #f4f7f6;
+            --light-bg: #ffffff;
+            --border-radius: 8px;
+            --transition-speed: 0.3s;
+        }
+        [data-theme="dark"] {
+            --primary: #4a9eff;
+            --secondary: #5a7a9a;
+            --accent-orange: #ffb347;
+            --accent-green: #5fe89f;
+            --text-color: #e0e0e0;
+            --bg-color: #1a1a1a;
+            --light-bg: #2a2a2a;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: background-color var(--transition-speed), color var(--transition-speed);
+        }
+        main {
+            width: 80%;
+            max-width: 1200px;
+            margin: 20px auto;
+            background-color: var(--light-bg);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            transition: background-color var(--transition-speed);
+        }
+        #progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), var(--accent-green));
+            z-index: 9999;
+            transition: width 0.1s ease;
+        }
+        .accessibility-controls {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            z-index: 1000;
+            background: var(--light-bg);
+            padding: 15px 10px;  /* Ajustado horizontal padding */
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 70px;  /* Más ancho para mejor visibilidad */
+            animation: slideInRight 0.5s ease;
+            transition: all 0.3s ease;
+        }
+        @keyframes slideInRight {
+            from {
+                transform: translateX(80px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        .control-btn, .lang-btn {
+            padding: 14px;
+            background-color: var(--secondary);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.2em;
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            width: 100%;
+            box-sizing: border-box;
+            white-space: nowrap;
+            overflow: visible;
+            text-align: center;
+            font-weight: bold;
+        }
+        .control-btn:hover, .lang-btn:hover {
+            transform: scale(1.08);
+            background-color: var(--primary);
+        }
+        .control-btn:focus, .lang-btn:focus {
+            outline: 3px solid var(--accent-orange);
+            outline-offset: 2px;
+        }
+        .lang-btn.active {
+            background: var(--primary);
+            transform: scale(1.1);
+        }
+        #perfil {
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--primary);
+            margin-bottom: 30px;
+        }
+        .perfil-info h1 {
+            color: var(--secondary);
+            margin-top: 0;
+            margin-bottom: 5px;
+            font-size: 2.5em;
+        }
+        .perfil-info h2 {
+            color: var(--primary);
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+            font-weight: 300;
+        }
+        .perfil-contacto {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            align-items: center;
+        }
+        .perfil-contacto p {
+            margin: 0;
+            font-size: 0.95em;
+        }
+        .foto-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 8px 15px;
+            background-color: #f0f0f0;
+            border: 2px solid var(--primary);
+            border-radius: 6px;
+            text-decoration: none;
+            color: var(--secondary);
+            font-weight: bold;
+            font-size: 0.9em;
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        .foto-link:hover {
+            background-color: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+        [data-theme="dark"] .foto-link {
+            background-color: var(--secondary);
+            color: var(--text-color);
+        }
+        [data-theme="dark"] .foto-link:hover {
+            background-color: var(--primary);
+            color: var(--light-bg);
+        }
+        .action-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin: 30px 0;
+        }
+        .action-btn {
+            padding: 12px 24px;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1em;
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        .action-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+        .action-btn:focus {
+            outline: 3px solid var(--accent-orange);
+            outline-offset: 2px;
+        }
+        .btn-cerrar-carta {
+            display: block;
+            width: 100%;
+            max-width: 300px;
+            margin: 30px auto 0;
+            padding: 12px 24px;
+            background-color: var(--secondary);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1em;
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        .btn-cerrar-carta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+        #carta-contenido {
+            display: none;
+            background-color: var(--light-bg);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            margin: 30px 0;
+            border-left: 4px solid var(--primary);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        #carta-contenido.mostrar {
+            display: block;
+            animation: fadeInSuave 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        @keyframes fadeInSuave {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        #carta-contenido h2 {
+            color: var(--secondary);
+            border-bottom: 3px solid var(--secondary);
+            padding-bottom: 5px;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+        #carta-contenido h3 {
+            color: var(--primary);
+            margin-top: 25px;
+            font-size: 1.4em;
+        }
+        #carta-contenido p {
+            text-align: justify;
+            line-height: 1.8;
+        }
+        section {
+            margin-bottom: 40px;
+        }
+        h2 {
+            color: var(--secondary);
+            border-bottom: 3px solid var(--secondary);
+            padding-bottom: 5px;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+        h3 {
+            font-size: 1.4em;
+            font-weight: bold;
+            color: var(--primary);
+            padding-left: 10px;
+            margin-top: 25px;
+        }
+        #formacion h4 {
+            margin: 0 0 5px 0;
+            font-size: 1.1em;
+            color: var(--secondary);
+        }
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 10px;
+        }
+        .cert-card {
+            background-color: var(--light-bg);
+            padding: 15px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            border-left: 4px solid var(--primary);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.5s ease forwards;
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        .cert-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+        }
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .cert-card a:hover h4 {
+            text-decoration: underline;
+        }
+        .cert-card span {
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: 10px;
+            flex-grow: 1;
+        }
+        [data-theme="dark"] .cert-card span {
+            color: #aaa;
+        }
+        .badge {
+            display: inline-block;
+            padding: 3px 8px;
+            margin-top: 8px;
+            border-radius: 4px;
+            font-size: 0.75em;
+            font-weight: bold;
+            color: white;
+            text-transform: uppercase;
+        }
+        .tag-oficial {
+            background-color: #999999;
+        }
+        .tag-docencia {
+            background-color: var(--primary);
+        }
+        .tag-tecnico {
+            background-color: var(--secondary);
+        }
+        .tag-coord {
+            background-color: var(--accent-orange);
+        }
+        .tag-prl {
+            background-color: var(--accent-orange);
+        }
+        @media screen and (max-width: 768px) {
+            main {
+                width: 95%;
+                padding: 20px;
+            }
+            .perfil-contacto {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+            .cert-grid {
+                grid-template-columns: 1fr;
+            }
+            .action-buttons {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .action-btn {
+                width: 100%;
+            }
+            .accessibility-controls {
+                top: 10px;
+                right: 10px;
+            }
+        }
+        @media print {
+            body {
+                background-color: white;
+            }
+            main {
+                width: 100%;
+                margin: 0;
+                box-shadow: none;
+                padding: 0;
+            }
+            .action-buttons,
+            .accessibility-controls,
+            #carta-contenido,
+            .btn-cerrar-carta,
+            #progress-bar {
+                display: none !important;
+            }
+        }
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--primary);
+            color: white;
+            padding: 8px;
+            text-decoration: none;
+            z-index: 10000;
+        }
+        .skip-link:focus {
+            top: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="#main-content" class="skip-link"
+        >Saltar al contenido principal</a
+    >
+
+    <div
+        id="progress-bar"
+        role="progressbar"
+        aria-label="Progreso de lectura"
+    ></div>
+
+    <div
+        class="accessibility-controls"
+        role="toolbar"
+        aria-label="Controles de accesibilidad"
+    >
+        <button
+            class="control-btn"
+            onclick="toggleTheme()"
+            aria-label="Cambiar tema claro/oscuro"
+            title="Cambiar tema"
+        >
+            🌓
+        </button>
+        <button
+            class="control-btn"
+            onclick="increaseFontSize()"
+            aria-label="Aumentar tamaño de fuente"
+            title="Aumentar texto"
+        >
+            A+
+        </button>
+        <button
+            class="control-btn"
+            onclick="decreaseFontSize()"
+            aria-label="Disminuir tamaño de fuente"
+            title="Reducir texto"
+        >
+            A-
+        </button>
+        <div
+            class="lang-selector"
+            role="group"
+            aria-label="Selector de idioma"
+        >
+            <button
+                class="lang-btn active"
+                onclick="changeLang('es')"
+                data-lang="es"
+                aria-label="Español"
+            >
+                ES
+            </button>
+            <button
+                class="lang-btn"
+                onclick="changeLang('en')"
+                data-lang="en"
+                aria-label="English"
+            >
+                EN
+            </button>
+            <button
+                class="lang-btn"
+                onclick="changeLang('eu')"
+                data-lang="eu"
+                aria-label="Euskera"
+            >
+                EU
+            </button>
+        </div>
+    </div>
+
+    <main id="main-content">
+        <header id="perfil">
+            <div class="perfil-info">
+                <h1 data-i18n="name">JUAN CARLOS DOMÍNGUEZ GARCÍA</h1>
+                <h2 data-i18n="title">
+                    Docente Formación Profesional, Técnico en Telecomunicaciones y PRL
+                </h2>
+                <div class="perfil-contacto">
+                    <p>📧 Email: juankr0070@gmail.com</p>
+                    <p>
+                        📞 <span data-i18n="phone">Teléfono</span>: 634754499
+                    </p>
+                    <p>
+                        📍 <span data-i18n="location">Ubicación</span>: Urnieta, 20130
+                    </p>
+                    <a
+                        href="https://drive.google.com/file/d/1ZHbfFcw_UYr99UHMBuosDYu4DDCaza4V/view?usp=sharing"
+                        target="_blank"
+                        class="foto-link"
+                        aria-label="Ver foto de perfil en Google Drive"
+                    >
+                        👤 <span data-i18n="photoLink">Ver Foto de Perfil</span>
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <div class="action-buttons">
+            <button
+                onclick="window.print()"
+                class="action-btn"
+                aria-label="Descargar CV como PDF"
+            >
+                ⬇️ <span data-i18n="downloadCV">Descargar CV (PDF)</span>
+            </button>
+            <button
+                onclick="toggleCarta()"
+                class="action-btn"
+                id="btn-carta"
+                aria-label="Mostrar carta de presentación"
+            >
+                📄 <span data-i18n="coverLetter">Carta de Presentación</span>
+            </button>
+        </div>
+
+        <div id="carta-contenido" aria-live="polite">
+            <h2 data-i18n="coverLetterTitle">Carta de Presentación</h2>
+
+            <h3 data-i18n="professionalSummary">Resumen Profesional</h3>
+            <p data-i18n="summary1">
+                Soy un profesional comprometido con el futuro laboral de nuestra juventud,
+                decidido a enseñar y compartir mis conocimientos técnicos y habilidades
+                adquiridas tras más de 10 años de experiencia para formar y crear nuevas
+                generaciones de futuros profesionales.
+            </p>
+            <p data-i18n="summary2">
+                Cuento con un alto conocimiento en pedagogía (Habilitación EELO,
+                Teleformación, Metodología Didáctica) y en gestión de seguridad
+                (Coordinador 200h), lo que me permite ofrecer una formación integral, técnica
+                y segura. Soy una persona responsable, puntual y minuciosa.
+            </p>
+
+            <h3 data-i18n="workExperience">Experiencia Laboral</h3>
+            <p data-i18n="experience1">
+                Mi trayectoria profesional se define por una sólida base dual Técnico-Docente,
+                con más de cuatro años de ejercicio como Tutor de Prácticas y Docente de
+                Formación Profesional, demostrando una capacidad probada para transmitir
+                conocimientos técnicos en instituciones. Esta experiencia pedagógica se cimienta
+                en una especialización técnica como Instalador y Mantenedor experto en infraestructuras
+                de telecomunicaciones, electricidad y redes, aportando un valor añadido de experiencia
+                industrial real y una visión integral en prevención, seguridad y programación.
+            </p>
+
+            <button
+                onclick="cerrarCarta()"
+                class="btn-cerrar-carta"
+                aria-label="Cerrar carta de presentación"
+            >
+                🔼 <span data-i18n="closeLetter">Cerrar Carta</span>
+            </button>
+        </div>
+
+        <section id="formacion">
+            <h2 data-i18n="trainingTitle">Formación y Títulos (Clasificación Profesional)</h2>
+
+            <h3
+                style="color:#999999; margin-bottom:15px"
+                data-i18n="section1"
+            >
+                1. Titulación y Formación Académica 🎓
+            </h3>
+            <div class="cert-grid" data-section="academic">
+                <div
+                    class="cert-card"
+                    style="border-left: 4px solid #999999; animation-delay: 0.1s"
+                >
+                    <a
+                        href="https://drive.google.com/file/d/1vSHtcfUx_h_RQypzIcgxV2O5NCZQ9AHi/view?usp=sharing"
+                        target="_blank"
+                        style="text-decoration: none; color: inherit"
+                        aria-label="Certificado de Habilitación Docente EELO"
+                    >
+                        <h4 data-i18n="cert1">
+                            Certificado de Habilitación Docente (EELO)
+                        </h4>
+                    </a>
+                    <span data-i18n="cert1desc">
+                        Habilitación oficial (Gobierno Vasco) para docencia en Formación
+                        Profesional (Grados A, B y C).
+                    </span>
+                    <div class="badge tag-oficial">OFICIAL</div>
+                </div>
+                <div
+                    class="cert-card"
+                    style="border-left: 4px solid #999999; animation-delay: 0.2s"
+                >
+                    <a
+                        href="https://drive.google.com/file/d/1nm_9btf_2vI6RrqURTxktMHriV4C6Tku/view?usp=sharing"
+                        target="_blank"
+                        style="text-decoration: none; color: inherit"
+                    >
+                        <h4 data-i18n="cert2">
+                            Certificado de Profesionalidad de Nivel 3 en Telecomunicaciones
+                        </h4>
+                    </a>
+                    <span data-i18n="cert2desc">
+                        Cualificación avanzada en Instalación y Mantenimiento de Infraestructuras.
+                    </span>
+                    <div class="badge tag-oficial">NIVEL 3</div>
+                </div>
+                <div
+                    class="cert-card"
+                    style="border-left: 4px solid #999999; animation-delay: 0.3s"
+                >
+                    <a
+                        href="https://drive.google.com/file/d/1ioYwtZjmA5C3JQuqd03Ict04awHBZb2w/view?usp=sharing"
+                        target="_blank"
+                        style="text-decoration: none; color: inherit"
+                    >
+                        <h4 data-i18n="cert3">
+                            Montaje y Mantenimiento de Telecomunicaciones y Electricidad
+                        </h4>
+                    </a>
+                    <span data-i18n="cert3desc">
+                        Certificado de Profesionalidad (Lanbide).
+                    </span>
+                    <div class="badge tag-oficial">NIVEL 2</div>
+                </div>
+                <div
+                    class="cert-card"
+                    style="border-left: 4px solid #999999; animation-delay: 0.4s"
+                >
+                    <a
+                        href="https://drive.google.com/file/d/1zCifnGnsFGn9mprRClcvU1cRZoQe3N1k/view?usp=sharing"
+                        target="_blank"
+                        style="text-decoration: none; color: inherit"
+                    >
+                        <h4 data-i18n="cert4">Operador Radioeléctrico Clase B</h4>
+                    </a>
+                    <span data-i18n="cert4desc">
+                        Licencia oficial del Ministerio de Ciencia y Tecnología.
+                    </span>
+                    <div class="badge tag-oficial">LICENCIA</div>
+                </div>
+            </div>
+
+            <br />
+            <h3 style="color: var(--primary); margin-bottom: 15px" data-i18n="section2">
+                2. Docencia y Pedagogía Aplicada 👨‍🏫
+            </h3>
+            <div class="cert-grid" data-section="teaching">
+                <div
+                    class="cert-card"
+                    style="border-left: 4px solid var(--primary); animation-delay: 0.1s"
+                >
+                    <a
+                        href="https://drive.google.com/file/d/1zCxE3sIeo7hRtWNr1D5HTOuDq06oxFiK/view?usp=sharing"
+                        target="_blank"
+                        style="text-decoration: none; color: inherit"
+                    >
+                        <h4 data-i18n="cert5">Docencia para el Empleo en Teleformación (Online)</h4>
+                    </a>
+                    <span data-i18n="cert5desc">
+                        Certificado para la impartición y tutorización de formación e-learning/online.
+                    </span>
+                    <div class="badge tag-docencia">TELEFORMACIÓN</div>
+                </div>
+                <div
+                    class="cert-card"
+                    style="border-left: 4px solid var(--primary); animation-delay: 0.2s"
+                >
+                    <a
+                        href="https://drive.google.com/file/d/189CJUY3q2Yg73tHvXo6owADvXOrEPFAL/view?usp=sharing"
+                        target="_blank"
+                        style="text-decoration: none; color: inherit"
+                    >
+                        <h4 data-i18n="cert6">Competencias Digitales</h4>
+                    </a>
+                    <span data-i18n="cert6desc">
+                        Uso de herramientas TIC y plataformas digitales para la enseñanza.
+                    </span>
+                    <div class="badge tag-docencia">TIC DOCENTE</div>
+                </div>
+                <div
+                    class="cert-card"
+                    style="border-left: 4px solid var(--primary); animation-delay: 0.3s"
+                >
+                    <a
+                        href="https://drive.google.com/file/d/1l4upRivze17l0-UfVfaRlB75wDFIx8qb/view?usp=sharing"
+                        target="_blank"
+                        style="text-decoration: none; color: inherit"
+                    >
+                        <h4 data-i18n="cert7">Técnicas Didácticas, Gestión de Aula e Inclusión</h4>
+                    </a>
+                    <span data-i18n="cert7desc">
+                        Consolidación de cursos cortos en Metodologías Activas, Tutorización, Motivación y Atención a la Diversidad.
+                    </span>
+                    <div class="badge tag-docencia">PEDAGOGÍA APLICADA</div>
+                </div>
+                <div
+                    class="cert-card"
+                    style="border-left: 4px solid var(--primary); animation-delay: 0.4s"
+                >
+                    <a
+                        href="https://drive.google.com/file/d/1DdHcrEe62-eV1xR7Ijeur6T9D_-kBiFy/view?usp=sharing"
+                        target="_blank"
+                        style="text-decoration: none; color: inherit"
+                    >
+                        <h4 data-i18n="cert8">Tutor Dual de Empresa</h4>
+                    </a>
+                    <span data-i18n="cert8desc">
+                        Formación especializada en seguimiento y evaluación de alumnos en el entorno laboral (FP Dual).
+                    </span>
+                    <div class="badge tag-docencia">MENTORÍA FP</div>
+                </div>
+            </div>
+
+            <br />
+            <h3 style="color: var(--secondary); margin-bottom: 15px" data-i18n="section3">
+                3. Competencias Técnicas 🔧
+            </h3>
+            <div class="cert-grid" data-section="technical">
+                <div
+                    class="cert-card"
+                    style="border-left: 4px solid var(--secondary); animation-delay: 0.1s"
+                >
+                    <a
+                        href="https://drive.google.com/file/d/10UUchlV2UAkusvWTvDoNSsqHGXuuJDHb/view?usp=sharing"
+                        target="_blank"
+                        style="text-decoration: none; color: inherit"
+                    >
+                        <h4 data-i18n="cert9">Redes y Automatización</h4>
+                    </a>
+                    <span data-i18n="cert9desc">
+                        Conocimiento integral en redes (Cisco CCNA, Fibra Óptica), automatización industrial (Programación PLC, Protocolo KNX) y desarrollo de sistemas (Java y JavaScript).
+                    </span>
+                    <div class="badge tag-tecnico">INDUSTRIA</div>
+                </div>
+                <div
+                    class="cert-card"
+                    style="border-left: 4px solid var(--secondary); animation-delay: 0.2s"
+                >
+                    <a
+                        href="https://drive.google.com/file/d/1Kr2dRoo84CuKnCkjHQdKpus7C4t1kDPL/view?usp=sharing"
+                        target="_blank"
+                        style="text-decoration: none; color: inherit"
+                    >
+                        <h4 data-i18n="cert10">Diseño y Simulación Técnica (CAD/FEM)</h4>
+                    </a>
+                    <span data-i18n="cert10desc">
+                        Manejo de AutoCAD para planos y esquemas técnicos, y Simulación LS-DYNA para análisis de elementos finitos y dinámica no lineal.
+                    </span>
+                    <div class="badge tag-tecnico">DISEÑO TÉCNICO</div>
+                </div>
+                <div
+                    class="cert-card"
+                    style="border-left: 4px solid var(--secondary); animation-delay: 0.3s"
+                >
+                    <a
+                        href="https://drive.google.com/file/d/1p5cy4t2GGLVJjhfpOc7qrw2zj9aADCMG/view?usp=sharing"
+                        target="_blank"
+                        style="text-decoration: none; color: inherit"
+                    >
+                        <h4 data-i18n="cert11">Certificados de empresa</h4>
+                    </a>
+                    <span data-i18n="cert11desc">Experiencia certificada.</span>
+                    <div class="badge tag-tecnico">SOFT SKILLS</div>
+                </div>
+                <div
+                    class="cert-card"
+                    style="border-left: 4px solid var(--secondary); animation-delay: 0.4s"
+                >
+                    <a
+                        href="https://drive.google.com/file/d/1a9Or3V6Xuus_-b_uoC8hJYpvIuYkIxsk/view?usp=drive_link"
+                        target="_blank"
+                        style="text-decoration: none; color: inherit"
+                    >
+                        <h4 data-i18n="cert12">Inglés Nivel</h4>
+                    </a>
+                    <span data-i18n="cert12desc">Comprensión y expresión básica para la comunicación.</span>
+                    <div class="badge tag-tecnico">IDIOMAS</div>
+                </div>
+            </div>
+
+            <br />
+            <h3 style="color: var(--accent-orange); margin-bottom: 15px" data-i18n="section4">
+                4. Prevención y Seguridad ⚠️
+            </h3>
+            <div class="cert-grid" data-section="safety">
+                <div
+                    class="cert-card"
+                    style="border-left: 4px solid var(--accent-orange); animation-delay: 0.1s"
+                >
+                    <a
+                        href="https://drive.google.com/file/d/1RIDlrSCDDeJSTUMy1-q8JDcyWytI25wk/view?usp=sharing"
+                        target="_blank"
+                        style="text-decoration: none; color: inherit"
+                    >
+                        <h4 data-i18n="cert13">Coordinador de Seguridad y Salud (200 horas)</h4>
+                    </a>
+                    <span data-i18n="cert13desc">Gestión superior de PRL en obras y proyectos.</span>
+                    <div class="badge tag-coord">COORDINADOR</div>
+                </div>
+                <div
+                    class="cert-card"
+                    style="border-left: 4px solid var(--accent-orange); animation-delay: 0.2s"
+                >
+                    <a
+                        href="https://drive.google.com/file/d/1V8Yp4xSStf1yFcpmse8DtAYne5PTkfTe/view?usp=sharing"
+                        target="_blank"
+                        style="text-decoration: none; color: inherit"
+                    >
+                        <h4 data-i18n="cert14">Espacios Confinados y Atmósferas Explosivas</h4>
+                    </a>
+                    <span data-i18n="cert14desc">Formación de IFPRL en riesgos específicos.</span>
+                    <div class="badge tag-prl">RIESGO ESPECÍFICO</div>
+                </div>
+                <div
+                    class="cert-card"
+                    style="border-left: 4px solid var(--accent-orange); animation-delay: 0.3s"
+                >
+                    <a
+                        href="https://drive.google.com/file/d/1sxajl2PjKKt3_7cQOjz4zB1e85m_FeL4/view?usp=sharing"
+                        target="_blank"
+                        style="text-decoration: none; color: inherit"
+                    >
+                        <h4 data-i18n="cert15">Seguridad en Incendios y Combustibles</h4>
+                    </a>
+                    <span data-i18n="cert15desc">
+                        Prevención y actuación ante riesgos de gasolineras y emergencias.
+                    </span>
+                    <div class="badge tag-prl">SEGURIDAD IND.</div>
+                </div>
+                <div
+                    class="cert-card"
+                    style="border-left: 4px solid var(--accent-orange); animation-delay: 0.4s"
+                >
+                    <a
+                        href="https://drive.google.com/file/d/19ynFxWrR4V4apcl3x4GndG0RfcjdsX0I/view?usp=sharing"
+                        target="_blank"
+                        style="text-decoration: none; color: inherit"
+                    >
+                        <h4 data-i18n="cert16">Manejo de Maquinaria Pesada (Carretillas y PEMP)</h4>
+                    </a>
+                    <span data-i18n="cert16desc">
+                        Certificados de Operador de Plataformas Elevadoras y Carretillas.
+                    </span>
+                    <div class="badge tag-prl">MAQUINARIA</div>
+                </div>
+                <div
+                    class="cert-card"
+                    style="border-left: 4px solid var(--accent-orange); animation-delay: 0.5s"
+                >
+                    <a
+                        href="https://drive.google.com/file/d/1CsCiMZxU0LPfQZAfdcbSEVn6y2OoymUT/view?usp=sharing"
+                        target="_blank"
+                        style="text-decoration: none; color: inherit"
+                    >
+                        <h4 data-i18n="cert17">Plan de Igualdad y Normativa Laboral</h4>
+                    </a>
+                    <span data-i18n="cert17desc">
+                        Implementación y cumplimiento de la normativa de igualdad en la empresa.
+                    </span>
+                    <div class="badge tag-prl">NORMATIVA LABORAL</div>
+                </div>
+                <div
+                    class="cert-card"
+                    style="border-left: 4px solid var(--accent-orange); animation-delay: 0.6s"
+                >
+                    <a
+                        href="https://drive.google.com/file/d/1Iy4T0t9_ji4pgSimIvHqkK5DMZZneeD0/view?usp=sharing"
+                        target="_blank"
+                        style="text-decoration: none; color: inherit"
+                    >
+                        <h4 data-i18n="cert18">Contaminación Atmosférica</h4>
+                    </a>
+                    <span data-i18n="cert18desc">
+                        Conocimientos sobre medición, impacto y normativas ambientales.
+                    </span>
+                    <div class="badge tag-prl">MEDIO AMBIENTE</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        const translations = {
+            es: {
+                name: "JUAN CARLOS DOMÍNGUEZ GARCÍA",
+                title: "Docente Formación Profesional, Técnico en Telecomunicaciones y PRL",
+                phone: "Teléfono",
+                location: "Ubicación",
+                photoLink: "Ver Foto de Perfil",
+                downloadCV: "Descargar CV (PDF)",
+                coverLetter: "Carta de Presentación",
+                coverLetterTitle: "Carta de Presentación",
+                professionalSummary: "Resumen Profesional",
+                summary1:
+                    "Soy un profesional comprometido con el futuro laboral de nuestra juventud, decidido a enseñar y compartir mis conocimientos técnicos y habilidades adquiridas tras más de 10 años de experiencia para formar y crear nuevas generaciones de futuros profesionales.",
+                summary2:
+                    "Cuento con un alto conocimiento en pedagogía (Habilitación EELO, Teleformación, Metodología Didáctica) y en gestión de seguridad (Coordinador 200h), lo que me permite ofrecer una formación integral, técnica y segura. Soy una persona responsable, puntual y minuciosa.",
+                workExperience: "Experiencia Laboral",
+                experience1:
+                    "Mi trayectoria profesional se define por una sólida base dual Técnico-Docente, con más de cuatro años de ejercicio como Tutor de Prácticas y Docente de Formación Profesional, demostrando una capacidad probada para transmitir conocimientos técnicos en instituciones. Esta experiencia pedagógica se cimienta en una especialización técnica como Instalador y Mantenedor experto en infraestructuras de telecomunicaciones, electricidad y redes, aportando un valor añadido de experiencia industrial real y una visión integral en prevención, seguridad y programación.",
+                closeLetter: "Cerrar Carta",
+                trainingTitle: "Formación y Títulos (Clasificación Profesional)",
+                section1: "1. Titulación y Formación Académica 🎓",
+                section2: "2. Docencia y Pedagogía Aplicada 👨‍🏫",
+                section3: "3. Competencias Técnicas 🔧",
+                section4: "4. Prevención y Seguridad ⚠️",
+                cert1: "Certificado de Habilitación Docente (EELO)",
+                cert1desc:
+                    "Habilitación oficial (Gobierno Vasco) para docencia en Formación Profesional (Grados A, B y C).",
+                cert2: "Certificado de Profesionalidad de Nivel 3 en Telecomunicaciones",
+                cert2desc:
+                    "Cualificación avanzada en Instalación y Mantenimiento de Infraestructuras.",
+                cert3: "Montaje y Mantenimiento de Telecomunicaciones y Electricidad",
+                cert3desc: "Certificado de Profesionalidad (Lanbide).",
+                cert4: "Operador Radioeléctrico Clase B",
+                cert4desc: "Licencia oficial del Ministerio de Ciencia y Tecnología.",
+                cert5: "Docencia para el Empleo en Teleformación (Online)",
+                cert5desc:
+                    "Certificado para la impartición y tutorización de formación e-learning/online.",
+                cert6: "Competencias Digitales",
+                cert6desc:
+                    "Uso de herramientas TIC y plataformas digitales para la enseñanza.",
+                cert7: "Técnicas Didácticas, Gestión de Aula e Inclusión",
+                cert7desc:
+                    "Consolidación de cursos cortos en Metodologías Activas, Tutorización, Motivación y Atención a la Diversidad.",
+                cert8: "Tutor Dual de Empresa",
+                cert8desc:
+                    "Formación especializada en seguimiento y evaluación de alumnos en el entorno laboral (FP Dual).",
+                cert9: "Redes y Automatización",
+                cert9desc:
+                    "Conocimiento integral en redes (Cisco CCNA, Fibra Óptica), automatización industrial (Programación PLC, Protocolo KNX) y desarrollo de sistemas (Java y JavaScript).",
+                cert10: "Diseño y Simulación Técnica (CAD/FEM)",
+                cert10desc:
+                    "Manejo de AutoCAD para planos y esquemas técnicos, y Simulación LS-DYNA para análisis de elementos finitos y dinámica no lineal.",
+                cert11: "Certificados de empresa",
+                cert11desc: "Experiencia certificada.",
+                cert12: "Inglés Nivel ",
+                cert12desc: "Comprensión y expresión básica para la comunicación.",
+                cert13: "Coordinador de Seguridad y Salud (200 horas)",
+                cert13desc: "Gestión superior de PRL en obras y proyectos.",
+                cert14: "Espacios Confinados y Atmósferas Explosivas",
+                cert14desc: "Formación de IFPRL en riesgos específicos.",
+                cert15: "Seguridad en Incendios y Combustibles",
+                cert15desc: "Prevención y actuación ante riesgos de gasolineras y emergencias.",
+                cert16: "Manejo de Maquinaria Pesada (Carretillas y PEMP)",
+                cert16desc:
+                    "Certificados de Operador de Plataformas Elevadoras y Carretillas.",
+                cert17: "Plan de Igualdad y Normativa Laboral",
+                cert17desc:
+                    "Implementación y cumplimiento de la normativa de igualdad en la empresa.",
+                cert18: "Contaminación Atmosférica",
+                cert18desc:
+                    "Conocimientos sobre medición, impacto y normativas ambientales.",
+            },
+            en: {
+                name: "JUAN CARLOS DOMÍNGUEZ GARCÍA",
+                title: "Vocational Training Teacher, Telecommunications & OHS Technician",
+                phone: "Phone",
+                location: "Location",
+                photoLink: "View Profile Photo",
+                downloadCV: "Download CV (PDF)",
+                coverLetter: "Cover Letter",
+                coverLetterTitle: "Cover Letter",
+                professionalSummary: "Professional Summary",
+                summary1:
+                    "I am a professional committed to the employment future of our youth, determined to teach and share my technical knowledge and skills acquired after more than 10 years of experience to train and create new generations of future professionals.",
+                summary2:
+                    "I have extensive knowledge in pedagogy (EELO Qualification, E-learning, Didactic Methodology) and safety management (Coordinator 200h), which allows me to offer comprehensive, technical and safe training. I am a responsible, punctual and meticulous person.",
+                workExperience: "Work Experience",
+                experience1:
+                    "My professional career is defined by a solid dual Technical-Teaching base, with more than four years of practice as Internship Tutor and Vocational Training Teacher, demonstrating proven ability to transmit technical knowledge in institutions. This pedagogical experience is based on technical specialization as an expert Installer and Maintainer in telecommunications, electricity and networks infrastructures, providing added value of real industrial experience and a comprehensive vision in prevention, safety and programming.",
+                closeLetter: "Close Letter",
+                trainingTitle: "Training and Qualifications (Professional Classification)",
+                section1: "1. Degrees and Academic Training 🎓",
+                section2: "2. Teaching and Applied Pedagogy 👨‍🏫",
+                section3: "3. Technical Skills 🔧",
+                section4: "4. Prevention and Safety ⚠️",
+                cert1: "Teaching Qualification Certificate (EELO)",
+                cert1desc:
+                    "Official qualification (Basque Government) for teaching in Vocational Training (Grades A, B and C).",
+                cert2: "Professional Certificate Level 3 in Telecommunications",
+                cert2desc: "Advanced qualification in Infrastructure Installation and Maintenance.",
+                cert3: "Assembly and Maintenance of Telecommunications and Electricity",
+                cert3desc: "Professional Certificate (Lanbide).",
+                cert4: "Radio Operator Class B",
+                cert4desc: "Official license from the Ministry of Science and Technology.",
+                cert5: "Teaching for Employment in E-learning (Online)",
+                cert5desc: "Certificate for delivering and tutoring e-learning/online training.",
+                cert6: "Digital Competences",
+                cert6desc: "Use of ICT tools and digital platforms for teaching.",
+                cert7: "Didactic Techniques, Classroom Management and Inclusion",
+                cert7desc:
+                    "Consolidation of short courses in Active Methodologies, Tutoring, Motivation and Attention to Diversity.",
+                cert8: "Dual Company Tutor",
+                cert8desc: "Specialized training in monitoring and evaluation of students in the work environment (Dual VET).",
+                cert9: "Networks and Automation",
+                cert9desc:
+                    "Comprehensive knowledge in networks (Cisco CCNA, Fiber Optics), industrial automation (PLC Programming, KNX Protocol) and systems development (Java and JavaScript).",
+                cert10: "Technical Design and Simulation (CAD/FEM)",
+                cert10desc:
+                    "AutoCAD management for technical plans and diagrams, and LS-DYNA Simulation for finite element analysis and nonlinear dynamics.",
+                cert11: "Company Certificates",
+                cert11desc: "Certified experience.",
+                cert12: "English Level ",
+                cert12desc: "Basic understanding and expression for communication.",
+                cert13: "Health and Safety Coordinator (200 hours)",
+                cert13desc: "Superior management of OHS in works and projects.",
+                cert14: "Confined Spaces and Explosive Atmospheres",
+                cert14desc: "IFPRL training in specific risks.",
+                cert15: "Fire Safety and Fuels",
+                cert15desc: "Prevention and action against gas station and emergency risks.",
+                cert16: "Heavy Machinery Operation (Forklifts and MEWPs)",
+                cert16desc: "Certificates of Aerial Platform and Forklift Operator.",
+                cert17: "Equality Plan and Labor Regulations",
+                cert17desc: "Implementation and compliance with equality regulations in the company.",
+                cert18: "Atmospheric Pollution",
+                cert18desc: "Knowledge about measurement, impact and environmental regulations.",
+            },
+            eu: {
+                name: "JUAN CARLOS DOMÍNGUEZ GARCÍA",
+                title: "Lanbide Heziketako Irakaslea, Telekomunikazioen eta LGBko Teknikaria",
+                phone: "Telefonoa",
+                location: "Kokapena",
+                photoLink: "Ikusi Profilaren Argazkia",
+                downloadCV: "Deskargatu CVa (PDF)",
+                coverLetter: "Aurkezpen Gutuna",
+                coverLetterTitle: "Aurkezpen Gutuna",
+                professionalSummary: "Laburpen Profesionala",
+                summary1:
+                    "Gure gazteen lan etorkizunarekin konprometitutako profesionala naiz, 10 urte baino gehiagoko esperientziaren ondoren lortutako nire ezagutza teknikoak eta gaitasunak irakasteko eta etorkizuneko profesionalen belaunaldi berriak prestatzeko erabakituta.",
+                summary2:
+                    "Pedagogian ezagutza handia daukat (EELO Gaikuntza, Teleformakuntza, Didaktika Metodologia) eta segurtasun kudeaketan (Koordinatzailea 200h), prestakuntza integral, teknikoa eta segurua eskaintzea ahalbidetzen didana. Pertsona arduratsua, puntuala eta zorrotza naiz.",
+                workExperience: "Lan Esperientzia",
+                experience1:
+                    "Nire ibilbide profesionala Teknikari-Irakasle oinarri sendo bikoitz batek definitzen du, Praktiken Tutore eta Lanbide Heziketako Irakasle gisa lau urte baino gehiago, erakunde-tan ezagutza teknikoak transmititzeko gaitasun frogatu bat erakutsiz. Esperientzia pedagogiko hau telekomunikazioen, elektrizitatearen eta sareen azpiegituretako Instalatzaile eta Mantentzaile aditu gisa espezializazio tekniko batean oinarritzen da, benetako esperientzia industrialaren balio erantsi bat eta prebentzio, segurtasun eta programazioko ikuspegi integral bat emanez.",
+                closeLetter: "Itxi Gutuna",
+                trainingTitle: "Prestakuntza eta Tituluak (Sailkapen Profesionala)",
+                section1: "1. Titulua eta Prestakuntza Akademikoa 🎓",
+                section2: "2. Irakaskuntza eta Pedagogia Aplikatua 👨‍🏫",
+                section3: "3. Gaitasun Teknikoak 🔧",
+                section4: "4. Prebentzioa eta Segurtasuna ⚠️",
+                cert1: "Irakasle Gaikuntza Ziurtagiria (EELO)",
+                cert1desc:
+                    "Gaikuntza ofiziala (Eusko Jaurlaritza) Lanbide Hezkuntzan irakasteko (A, B eta C Graduak).",
+                cert2: "Certificado Profesional Nivel 3",
+                cert2desc: "Kualifikazio aurreratua Azpiegituren Instalazio eta Mantentze-an.",
+                cert3: "Telekomunikazioen eta Elektrizitatearen Muntaia eta Mantenua",
+                cert3desc: "Profesionaltasun Ziurtagiria (Lanbide).",
+                cert4: "B Klaseko Irrati Operadorea",
+                cert4desc: "Zientzia eta Teknologia Ministerioaren lizentzia ofiziala.",
+                cert5: "Enplegurako Irakaskuntza Teleprestakuntz-an (Lineako)",
+                cert5desc: "E-learning/lineako prestakuntza emateko eta tutoretza egiteko ziurtagiria.",
+                cert6: "Gaitasun Digitalak",
+                cert6desc: "IKT tresnen eta plataforma digitalen erabilera irakaskuntzarako.",
+                cert7: "Didaktika Teknikak, Gelaren Kudeaketa eta Inklusioa",
+                cert7desc:
+                    "Ikastaro laburren sendotzea Metodologia Aktiboetan, Tutoretzan, Motibazioan eta Aniztasunari Arreta.",
+                cert8: "Enpresako Tutore Bikoitza",
+                cert8desc: "Prestakuntza espezializatua ikasleen jarraipena eta ebaluazioa lan ingurunean (FP Duala).",
+                cert9: "Sareak eta Automatizazioa",
+                cert9desc:
+                    "Ezagutza integrala sareetan (Cisco CCNA, Zuntz Optikoa), automatizazio industrialean (PLC Programazioa, KNX Protokoloa) eta sistemen garapenean (Java eta JavaScript).",
+                cert10: "Diseinu eta Simulazio Teknikoa (CAD/FEM)",
+                cert10desc:
+                    "AutoCAD kudeaketa plano eta eskema teknikoetarako, eta LS-DYNA Simulazioa elementu finituen analisi eta dinamika ez-linearerako.",
+                cert11: "Enpresako Ziurtagiriak",
+                cert11desc: "Esperientzia ziurtatua.",
+                cert12: "Ingelesa  Maila",
+                cert12desc: "Oinarrizko ulermena eta adierazpena komunikaziorako.",
+                cert13: "Osasun eta Segurtasun Koordinatzailea (200 ordu)",
+                cert13desc: "LGB kudeaketa goragokoa obretako eta proiektuetako.",
+                cert14: "Espazio Itxiak eta Atmosfera Lehergailuak",
+                cert14desc: "IFPRL prestakuntza arrisku espezifikoetan.",
+                cert15: "Suteak eta Erregaien Segurtasuna",
+                cert15desc:
+                    "Prebentzio eta ekin-tzak gasolindegi eta larrialdietako arriskuen aurka.",
+                cert16: "Makina Astunaren Erabilera (Orga-jasotzaileak eta PEMPak)",
+                cert16desc: "Plataforma Igogailu eta Orga-jasotzaile Operadorearen ziurtagiriak.",
+                cert17: "Berdintasun Plana eta Lan Araudia",
+                cert17desc: "Enpresako berdintasun araudia ezartzea eta betetzea.",
+                cert18: "Atmosferaren Kutsadura",
+                cert18desc: "Ezagutza neurketari, inpaktuari eta ingurumen araudiari buruz."
+            }
+        };
+
+        let currentLang = 'es';
+        let currentFontSize = 100;
+
+        window.addEventListener('scroll', () => {
+            const winScroll =
+                document.body.scrollTop || document.documentElement.scrollTop;
+            const height =
+                document.documentElement.scrollHeight -
+                document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById('progress-bar').style.width = scrolled + '%';
+        });
+
+        function toggleTheme() {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        });
+
+        function increaseFontSize() {
+            if (currentFontSize < 150) {
+                currentFontSize += 10;
+                document.documentElement.style.fontSize = currentFontSize + '%';
+                localStorage.setItem('fontSize', currentFontSize);
+            }
+        }
+
+        function decreaseFontSize() {
+            if (currentFontSize > 80) {
+                currentFontSize -= 10;
+                document.documentElement.style.fontSize = currentFontSize + '%';
+                localStorage.setItem('fontSize', currentFontSize);
+            }
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedSize = localStorage.getItem('fontSize') || 100;
+            currentFontSize = parseInt(savedSize);
+            document.documentElement.style.fontSize = currentFontSize + '%';
+        });
+
+        function changeLang(lang) {
+            currentLang = lang;
+
+            document.querySelectorAll('.lang-btn').forEach((btn) => {
+                btn.classList.remove('active');
+                if (btn.getAttribute('data-lang') === lang) {
+                    btn.classList.add('active');
+                }
+            });
+
+            document.querySelectorAll('[data-i18n]').forEach((elem) => {
+                const key = elem.getAttribute('data-i18n');
+                if (translations[lang][key]) {
+                    elem.textContent = translations[lang][key];
+                }
+            });
+
+            document.documentElement.lang = lang;
+            localStorage.setItem('lang', lang);
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('lang') || 'es';
+            changeLang(savedLang);
+        });
+
+        function toggleCarta() {
+            const cartaContenido = document.getElementById('carta-contenido');
+            const btnCarta = document.getElementById('btn-carta');
+            if (cartaContenido.classList.contains('mostrar')) {
+                cartaContenido.classList.remove('mostrar');
+                btnCarta.querySelector('span').textContent =
+                    translations[currentLang].coverLetter;
+            } else {
+                cartaContenido.classList.add('mostrar');
+                btnCarta.querySelector('span').textContent =
+                    '🔼 ' + translations[currentLang].closeLetter;
+                cartaContenido.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+
+        function cerrarCarta() {
+            const cartaContenido = document.getElementById('carta-contenido');
+            const btnCarta = document.getElementById('btn-carta');
+            cartaContenido.classList.remove('mostrar');
+            btnCarta.querySelector('span').textContent =
+                translations[currentLang].coverLetter;
+            const actionButtons = document.querySelector('.action-buttons');
+            actionButtons.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                const cartaContenido = document.getElementById('carta-contenido');
+                if (cartaContenido.classList.contains('mostrar')) {
+                    cerrarCarta();
+                }
+            }
+        });
+    </script>
+</body>
+</html>
