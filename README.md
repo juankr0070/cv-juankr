@@ -768,7 +768,7 @@
                         target="_blank"
                         style="text-decoration: none; color: inherit"
                     >
-                        <h4 data-i18n="cert12">Inglés Nivel</h4>
+                        <h4 data-i18n="cert12">Inglés Nivel </h4>
                     </a>
                     <span data-i18n="cert12desc">Comprensión y expresión básica para la comunicación.</span>
                     <div class="badge tag-tecnico">IDIOMAS</div>
